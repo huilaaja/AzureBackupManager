@@ -83,17 +83,11 @@ namespace SnapRepo.Backups
             _logService.WriteLog($"Creating AppData zip file {fileName}.");
             using (ZipFile zip = new ZipFile())
             {
-                zip.UseZip64WhenSaving = GetZip64Option();
+                zip.UseZip64WhenSaving = SettingsFactory.UseZip64WhenSaving ? Zip64Option.Always : Zip64Option.Never;
                 zip.AddDirectory(appDataFolder);
                 zip.Save(localRepositoryPath + fileName);
             }
             return fileName;
-        }
-
-        private static Zip64Option GetZip64Option()
-        {
-            Zip64Option zip64Option;
-            return Enum.TryParse(SettingsFactory.UseZip64WhenSaving, out zip64Option) ? zip64Option : Zip64Option.Default;
         }
 
         private string CreateBackupPackage(string localRepositoryPath, string dbBackupFileName, string appDataZipFileName, string backupInfix)

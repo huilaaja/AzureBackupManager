@@ -121,6 +121,8 @@
             &lt;add key="SnapRepo.CheckUserGroups" value="False"/&gt;</li>
         <li>Disable HTTPS-redirect:<br/>
             &lt;add key="SnapRepo.ForceHttps" value="False"/&gt;</li>
+        <li>Disable usage of Zip64 (disables large backups):<br/>
+            &lt;add key="SnapRepo.UseZip64WhenSaving" value="False"/&gt;</li>
     </ul>
     <p>Same settings are in application:<br/><img src="https://raw.githubusercontent.com/huilaaja/SnapRepo/master/Screenshots/screencapture-settings.png" width="500" /></p>
   </details>
